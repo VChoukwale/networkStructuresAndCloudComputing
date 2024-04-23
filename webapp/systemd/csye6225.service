@@ -1,0 +1,16 @@
+[Unit]
+Description=CSYE6225App
+After=network.target
+
+[Service]
+Type=simple
+User=csye6225
+WorkingDirectory=/opt/webappFork
+ExecStartPre=/usr/bin/npm install
+ExecStart=/usr/bin/node /opt/webappFork/index.js
+StandardOutput=syslog
+StandardError=syslog
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
